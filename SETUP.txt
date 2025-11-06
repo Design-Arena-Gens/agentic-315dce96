@@ -1,0 +1,47 @@
+# Binance Early Pump Detector - Setup Guide
+
+## Quick Start
+
+1. Install dependencies:
+   pip install -r requirements.txt
+
+2. Get Binance API credentials:
+   - Visit: https://www.binance.com/en/my/settings/api-management
+   - Create API key (read-only permissions are sufficient)
+
+3. Create Telegram bot:
+   - Message @BotFather on Telegram
+   - Send /newbot and follow instructions
+   - Get your chat ID from @userinfobot
+
+4. Set environment variables:
+   export BINANCE_API_KEY="your_key"
+   export BINANCE_API_SECRET="your_secret"
+   export TELEGRAM_BOT_TOKEN="bot_token"
+   export TELEGRAM_CHAT_ID="your_chat_id"
+
+5. Run the script:
+   python binance_pump_detector.py
+
+## How It Works
+
+The script monitors Binance spot market and calculates pump probability scores based on:
+- Volume spikes (3-5x increases)
+- Price momentum and acceleration
+- Order book buy/sell pressure
+- Trade flow analysis (buyer vs seller aggression)
+- Price consistency patterns
+
+Scores ≥ 60/100 trigger Telegram alerts.
+
+## Configuration
+
+Edit binance_pump_detector.py to adjust:
+- min_volume_spike (default: 3.0x)
+- min_price_increase (default: 2%)
+- scan_interval (default: 5 seconds)
+- Score thresholds
+
+## Warning
+
+This is for educational purposes. Crypto trading is highly risky. Always use stop losses and never risk more than you can afford to lose.
